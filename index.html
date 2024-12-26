@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Frontend Mentor | Tip calculator app</title>
+</head>
+
+<body>
+  <h1>SPLI<br />TTER</h1>
+
+  <div class="card">
+    <div class="card-select">
+      <label for="number" class="texto-maior-select">Bill</label> <br />
+      <div class="input-container">
+        <img src="images/icon-dollar.svg" alt="Imagem dollar" class="input-icon" />
+        <input type="number" id="bill" placeholder="0" required="required" name="bill" />
+      </div>
+      <p class="texto-maior-select" style="margin-bottom: 10px;">Select Tip %</p>
+      <div class="tip-buttons">
+        <button class="tip-button" data-tip="5"> 05% </button>
+        <button class="tip-button" data-tip="10">10%</button>
+        <button class="tip-button" data-tip="15">15%</button>
+        <button class="tip-button" data-tip="25">25%</button>
+        <button class="tip-button" data-tip="50">50%</button>
+        <input type="number" id="custom-tip" placeholder="Custom" />
+      </div>
+      <div style="margin-top: 20px;"><label for="number" class="texto-maior-select">Number of People</label></div>
+      <div class="input-container">
+        <img src="images/icon-person.svg" alt="Imagem pessoa" class="input-icon" />
+        <input type="number" id="people" placeholder="0" min="1" required="required" name="people" />
+      </div>
+    </div>
+    <div class="card-calc">
+      <div class="container-texto">
+        <div class="texto-esquerdo">
+          <p class="texto-maior-calc">Tip Amount</p>
+          <p class="texto-menor-calc">/ person</p>
+        </div>
+        <p id="tip-amount" class="texto-output">$0.00</p>
+      </div>
+      <div class="container-texto">
+        <div class="texto-esquerdo">
+          <p class="texto-maior-calc">Total</p>
+          <p class="texto-menor-calc">/ person</p>
+        </div>
+        <p id="total" class="texto-output">$0.00</p>
+      </div>
+      <input type="reset" id="reset" class="button-reset" value="RESET" />
+    </div>
+  </div>
+
+  <footer>
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by
+      <a href="https://github.com/TainaDr">Tainá Leandra Dreissig</a>.
+    </div>
+  </footer>
+</body>
+
+<script>
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const billInput = document.getElementById("bill");
+    const tipButtons = document.querySelectorAll(".tip-button");
+    const customTipInput = document.getElementById("custom-tip");
+    const peopleInput = document.getElementById("people");
+    const tipAmountOutput = document.getElementById("tip-amount");
+    const totalOutput = document.getElementById("total");
+    const resetButton = document.getElementById("reset");
+
+    let billValue = 0;
+    let tipValue = 0;
+    let peopleValue = 1;
+
+    function calculateTip() {
+      if (peopleValue === 0) {
+        tipAmountOutput.textContent = "$0.00";
+        totalOutput.textContent = "$0.00";
+        return;
+      }
+
+      const tipAmount = (billValue * tipValue) / peopleValue;
+      const total = (billValue + billValue * tipValue) / peopleValue;
+
+      tipAmountOutput.textContent = `$${tipAmount.toFixed(2)}`;
+      totalOutput.textContent = `$${total.toFixed(2)}`;
+    }
+
+    billInput.addEventListener("input", function () {
+      billValue = parseFloat(billInput.value) || 0;
+      calculateTip();
+    });
+
+    tipButtons.forEach((button) => {
+      button.addEventListener("click", function () {
+        tipButtons.forEach((btn) => btn.classList.remove("active"));
+        button.classList.add("active");
+        tipValue = parseFloat(button.dataset.tip) / 100;
+        customTipInput.value = "";
+        calculateTip();
+      });
+    });
+
+    customTipInput.addEventListener("input", function () {
+      tipValue = parseFloat(customTipInput.value) / 100 || 0;
+      tipButtons.forEach((btn) => btn.classList.remove("active"));
+      calculateTip();
+    });
+
+    peopleInput.addEventListener("input", function () {
+      peopleValue = parseInt(peopleInput.value) || 0;
+
+      if (peopleValue < 1) {
+        peopleInput.classList.add("error");
+      } else {
+        peopleInput.classList.remove("error");
+      }
+
+      calculateTip();
+    });
+    resetButton.addEventListener("click", function () {
+      billInput.value = "";
+      customTipInput.value = "";
+      peopleInput.value = "1";
+      tipButtons.forEach((btn) => btn.classList.remove("active"));
+      tipAmountOutput.textContent = "$0.00";
+      totalOutput.textContent = "$0.00";
+      billValue = 0;
+      tipValue = 0;
+      peopleValue = 1;
+    });
+
+  });
+</script>
+
+</html>
