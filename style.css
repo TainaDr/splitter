@@ -20,7 +20,8 @@ h1 {
     font-style: normal;
     color: #416265;
     text-align: center;
-    margin: 100px 0;
+    margin-top: 150px;
+    margin-bottom: 50px;
     letter-spacing: 1em;
 }
 
@@ -32,6 +33,7 @@ h1 {
     margin: 0 400px;
     padding: 30px;
     border-radius: 10px;
+    width: auto; 
 }
 
 .attribution {
