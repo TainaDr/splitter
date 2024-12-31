@@ -1,0 +1,286 @@
+@import url("https://fonts.googleapis.com/css2?family=Aclonica&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+/* Configuração padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #c5e4e7;
+    overflow: hidden;
+}
+
+/* CSS Página */
+h1 {
+    font-size: 24px;
+    font-family: "Space Mono", serif;
+    font-weight: 700;
+    font-style: normal;
+    color: #416265;
+    text-align: center;
+    margin-top: 150px;
+    margin-bottom: 50px;
+    letter-spacing: 1em;
+}
+
+.card {
+    background-color: hsl(0, 0%, 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 350px;
+    padding: 30px;
+    border-radius: 10px;
+    width: auto; 
+}
+
+.attribution {
+    padding: 20px;
+    text-align: center;
+}
+
+.attribution a {
+    text-decoration: none;
+    color: rgb(19, 0, 106);
+}
+
+label .texto-maior-select {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.texto-maior-calc,
+.texto-maior-select,
+label {
+    font-size: 20px;
+    font-family: "Space Mono", serif;
+    font-weight: 700;
+    margin-top: 20px;
+    font-style: normal;
+}
+
+.texto-menor-calc {
+    font-size: 12px;
+    font-family: "Space Mono", serif;
+    font-weight: 700;
+    font-style: normal;
+    color: hsl(184, 14%, 56%);
+}
+
+input {
+    color: hsl(185, 41%, 84%);
+}
+
+label,
+.texto-maior-select {
+    color: hsl(186, 14%, 43%);
+}
+
+
+.tip-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 0;
+    margin: 0;
+}
+
+button {
+    color: hsl(0, 0%, 100%);
+    font-size: 16px;
+    font-family: "Space Mono", serif;
+    font-weight: 700;
+    font-style: normal;
+    background-color: hsl(183, 100%, 15%);
+    border-radius: 5px;
+    padding: 5px 30px;
+    border: none;
+    object-fit: cover;
+}
+
+#custom-tip {
+    background-color: hsl(202, 50%, 97%);
+    color: hsl(180, 11%, 38%);
+    font-size: 16px;
+    font-size: 16px;
+    font-family: "Space Mono", serif;
+    font-weight: 700;
+    font-style: normal;
+    border-radius: 5px;
+    border: none;
+    object-fit: cover;
+    width: 90px;
+    height: 35px;
+    outline-color: hsl(173, 35%, 60%);
+    text-align: center;
+}
+
+
+button:hover {
+    background-color: hsl(172, 67%, 46%);
+    color: hsl(178, 89%, 21%);
+}
+
+.card-calc {
+    background-color: hsl(183, 100%, 15%);
+    padding: 30px;
+    border-radius: 10px;
+    margin-left: 20px;
+}
+
+.texto-maior-calc {
+    color: hsl(0, 0%, 100%);
+}
+
+.card-calc input[type="reset"] {
+    background-color: hsl(183, 79%, 24%);
+    color: hsl(183, 88%, 20%);
+    margin-top: 80px;
+    padding: 8px 120px;
+    border-radius: 5px;
+    border: 0 none;
+    font-family: "Space Mono", serif;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.tip-buttons {
+    flex-direction: row;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+.card-calc input[type="reset"]:hover {
+    background-color: hsl(173, 61%, 77%);
+    color: hsl(177, 100%, 12%);
+}
+
+.input-container {
+    position: relative;
+    display: inline-block;
+    width: 300px;
+}
+
+.input-container input[type="number"] {
+    background-color: hsl(202, 50%, 97%);
+    color: hsl(183, 100%, 15%);
+    border-radius: 5px;
+    width: 100%;
+    height: 40px;
+    font-family: "Space Mono", serif;
+    font-weight: 700;
+    text-align: right;
+    padding-right: 10px;
+    outline-color: hsl(173, 35%, 60%);
+    border: 0;
+    margin-right: 30px;
+    font-size: 1;
+    margin-top: 10px;
+}
+
+
+.input-container img.input-icon {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    height: 20px;
+    width: auto;
+    pointer-events: none;
+}
+
+.card-select input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.label-select {
+    margin: 30px 0;
+}
+
+.texto-output {
+    color: hsl(172, 69%, 45%);
+    font-family: "Space Mono", serif;
+    font-weight: 700;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: right;
+}
+
+.container-texto {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+}
+
+/*Responsividade*/
+@media (max-width: 768px) {
+    body {
+        overflow: auto;
+        padding-top: 10px;
+    }
+
+    h1 {
+        font-size: 20px;
+        margin: 50px 0;
+        letter-spacing: 2em;
+    }
+
+    .card {
+        flex-direction: column; 
+        margin: 0;
+        padding: 20px;
+        width: auto; 
+        border-radius: 20px 20px 0px 0px;
+    }
+
+    .card-calc {
+        margin-left: 0; 
+        margin-top: 20px; 
+        padding: 20px;
+        width: 100%;
+    }
+
+    .input-container {
+        width: 100%; 
+    }
+
+    .input-container input[type="number"] {
+        height: 50px; 
+    }
+
+    .tip-buttons {
+        gap: 10px; 
+        justify-content: center; 
+    }
+
+    button {
+        width: 40%;
+        padding: 10px; 
+    }
+
+    #custom-tip {
+        width: 40%;
+        height: 44px;
+    }
+
+    .card-calc input[type="reset"] {
+        margin-top: 20px;
+        width: 100%; 
+    }
+
+    .container-texto {
+        display: flex;
+        justify-content: space-between; 
+        align-items: center;
+    }
+
+    .texto-output {
+        font-size: 28px;
+        text-align: right;
+    }
+}
